@@ -7,7 +7,7 @@ This library provides extensions methods of [azure-iot-sdk](https://github.com/A
 ## Installation
 The library is available via nuget.org
 
-TBD: nuget link
+https://www.nuget.org/packages/IoTEdgeObjectModel
 
 ## How To Use
 The following are samples of how to use the extension methods.
@@ -71,14 +71,12 @@ Then the `configurationContent` can be appied to IoTEdge device
 await registryManager.ApplyConfigurationContentOnDeviceAsync({IoTEdgeId}, configurationContent).ConfigureAwait(false);
 ```
 ### Extract IoT Edge Module Status
-The reported properties from $EdgeAgent/$EdgeHub module twins can be used to examine the state of a deployment on a device.
+The reported properties from $EdgeAgent and $EdgeHub module twins can be used to examine the state of a deployment on a device.
 ```csharp
 // get $EdgeHub and $EdgeAgent module twin through SDK.
 Twin edgeAgentTwin = await registryManager.GetTwinAsync(IoTEdgeId, "$edgeAgent").ConfigureAwait(false);
 Twin edgeHubTwin = await registryManager.GetTwinAsync(IoTEdgeId, "$edgeHub").ConfigureAwait(false);
-```
-```csharp
-// get $EdgeHub and $EdgeAgent module twin through SDK.
+
 EdgeAgentReportedProperties edgeAgentReportedProperties = edgeAgentTwin.GetEdgeAgentReportedProperties();
 EdgeHubReportedProperties edgeHubReportedProperties = edgeHubTwin.GetEdgeHubReportedProperties();
 ```
