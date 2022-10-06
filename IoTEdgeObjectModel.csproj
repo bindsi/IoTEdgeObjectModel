@@ -18,7 +18,7 @@ Extract IoT Edge module status (e.g. last updated time, exit code) from $EdgeAge
     <PackageReleaseNotes>1.0.1 update readme and license</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
     <None Update="README.md">

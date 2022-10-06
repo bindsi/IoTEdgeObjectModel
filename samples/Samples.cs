@@ -66,5 +66,32 @@ namespace Microsoft.Azure.Devices
             Twin edgeHubTwin = await registryManager.GetTwinAsync("IoTEdgeId", "$edgeHub").ConfigureAwait(false);
             EdgeHubReportedProperties edgeHubReportedProperties = edgeHubTwin.GetEdgeHubReportedProperties();
         }
+
+        /// <summary>
+        /// GetDeploymentManifestSample.
+        /// </summary>
+        /// <returns>Task.</returns>
+        public async Task GetDeploymentManifestSample()
+        {
+            RegistryManager registryManager = RegistryManager.CreateFromConnectionString("<IoTHub ConnectionString>");
+
+            // Get deployment manifest for edge deviceId
+            string manifest = await registryManager.GetDeploymentManifest("<IoTEdgeId>");
+        }
+
+        /// <summary>
+        /// CloneDeploymentAtScaleSample.
+        /// </summary>
+        /// <returns>Task.</returns>
+        public async Task CloneDeploymentAtScaleSample()
+        {
+            RegistryManager registryManager = RegistryManager.CreateFromConnectionString("<IoTHub ConnectionString>");
+
+            // optional: Add new modulesContent
+            IDictionary<string, IDictionary<string, object>> newModulesContent = await registryManager.GetModulesContent("<CurrentDeploymentId>");
+
+            // Clone deployment-at-scale
+            await registryManager.CloneDeploymentAtScale("<CurrentDeploymentId>", "<NewDeploymentId>", newModulesContent);
+        }
     }
 }
