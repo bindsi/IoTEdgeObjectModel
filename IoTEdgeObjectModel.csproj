@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>IoTEdgeObjectModel</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -15,7 +15,9 @@ Extract IoT Edge module status (e.g. last updated time, exit code) from $EdgeAge
     <Copyright>huanjisun</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>iotedge</PackageTags>
-    <PackageReleaseNotes>1.0.1 update readme and license</PackageReleaseNotes>
+    <PackageReleaseNotes>Add new features:
+    Clone an At-Scale deployment.
+    Extract a deployment manifest from $EdgeAgent and $EdgeHub module twin desired properties.</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="" />
