@@ -7,6 +7,8 @@ This library provides extensions methods of [azure-iot-sdk](https://github.com/A
 3. Extract a deployment manifest from $EdgeAgent and $EdgeHub module twin desired properties.
 4. Extract IoT Edge module status (e.g. last updated time, exit code) from $EdgeAgent and $EdgeHub module twin reported properties.
 
+The object model supplies a common API to view and edit deployment manifests regardless of whether they originate from an [At-Scale](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-monitor) or [single device](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring) deployment.
+
 # Installation
 
 The library is available via nuget.org

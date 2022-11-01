@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>IoTEdgeObjectModel</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
