@@ -43,10 +43,13 @@ namespace Microsoft.Azure.Devices
         /// <returns>ConfigurationContent Output.</returns>
         public static ConfigurationContent SetEdgeHub(this ConfigurationContent configurationContent, EdgeHubDesiredProperties edgeHubDesiredProperties)
         {
-            Dictionary<string, string> routes = new Dictionary<string, string>();
+            Dictionary<string, Dictionary<string, string>> routes = new Dictionary<string, Dictionary<string, string>>();
             edgeHubDesiredProperties.Routes.ForEach(x =>
             {
-                routes.Add(x.Name, x.Value);
+                routes.Add(x.Name, new Dictionary<string, string>
+                {
+                    { "route", x.Value },
+                });
             });
 
             if (configurationContent.ModulesContent == null)

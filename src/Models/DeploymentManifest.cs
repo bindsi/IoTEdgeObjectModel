@@ -245,7 +245,7 @@ namespace Microsoft.Azure.Devices
             /// Gets or sets routes.
             /// </summary>
             [JsonProperty("routes")]
-            public Dictionary<string, Route> Routes { get; set; }
+            public Dictionary<string, Dictionary<string, string>> Routes { get; set; }
 
             /// <summary>
             /// Gets or sets storeAndForwardConfiguration.
