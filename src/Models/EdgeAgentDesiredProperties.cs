@@ -43,6 +43,11 @@ namespace Microsoft.Azure.Devices
         public List<RegistryCredential> RegistryCredentials { get; set; } = new List<RegistryCredential>();
 
         /// <summary>
+        /// Gets or sets edgeSystemModuleSpecifications.
+        /// </summary>
+        public List<EdgeModuleSpecification> EdgeSystemModuleSpecifications { get; set; } = new List<EdgeModuleSpecification>();
+
+        /// <summary>
         /// Gets or sets edgeModuleSpecifications.
         /// </summary>
         public List<EdgeModuleSpecification> EdgeModuleSpecifications { get; set; } = new List<EdgeModuleSpecification>();

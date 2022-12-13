@@ -32,10 +32,18 @@ namespace Microsoft.Azure.Devices
                 {
                     new EdgeModuleSpecification("simulator", "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0"),
                 },
+                EdgeSystemModuleSpecifications = new List<EdgeModuleSpecification>()
+                {
+                    new EdgeModuleSpecification("edgeAgent", "mcr.microsoft.com/azureiotedge-agent:1.4"),
+                    new EdgeModuleSpecification("edgeHub", "mcr.microsoft.com/azureiotedge-hub:1.4", createOptions: "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"),
+                },
             };
             EdgeHubDesiredProperties edgeHubConfig = new EdgeHubDesiredProperties()
             {
-                Routes = new List<Route>() { new Route("sensorToUpstream", "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO $upstream") },
+                Routes = new List<Route>()
+                {
+                    new Route("sensorToUpstream", "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO $upstream"),
+                },
             };
             ModuleSpecificationDesiredProperties customModule = new ModuleSpecificationDesiredProperties()
             {

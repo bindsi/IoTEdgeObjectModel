@@ -6,6 +6,7 @@
 namespace Microsoft.Azure.Devices
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// ConfigurationContentExtensions.
@@ -145,31 +146,61 @@ namespace Microsoft.Azure.Devices
                         registryCredentials = manifestRegistryCredentials,
                     },
                 },
+                systemModules = GetSystemModuleSpecification(edgeAgentDesiredProperties),
+                modules = modules,
+            };
+        }
 
-                systemModules = new
+        private static object GetSystemModuleSpecification(EdgeAgentDesiredProperties edgeAgentDesiredProperties)
+        {
+            Dictionary<string, object> systemModules = new Dictionary<string, object>();
+            if (edgeAgentDesiredProperties.EdgeSystemModuleSpecifications.Any())
+            {
+                edgeAgentDesiredProperties.EdgeSystemModuleSpecifications.ForEach(x =>
                 {
-                    edgeAgent = new
-                    {
-                        type = "docker",
-                        settings = new
+                    Dictionary<string, object> env = new Dictionary<string, object>();
+                    x.EnvironmentVariables.ForEach(e => env.Add(e.Name, new { value = e.Value }));
+                    systemModules.Add(
+                        x.Name,
+                        new
                         {
-                            image = $"mcr.microsoft.com/azureiotedge-agent:{edgeAgentDesiredProperties.SystemModuleVersion}",
-                            createOptions = edgeAgentDesiredProperties.EdgeAgentCreateOptions,
-                        },
-                    },
-                    edgeHub = new
+                            version = x.Version,
+                            type = "docker",
+                            status = x.Status.ToString().ToLower(),
+                            restartPolicy = x.RestartPolicy.ToString().ToLower(),
+                            settings = new
+                            {
+                                image = x.Image,
+                                createOptions = x.CreateOptions,
+                            },
+                            env = env,
+                        });
+                });
+                return systemModules;
+            }
+
+            return new
+            {
+                edgeAgent = new
+                {
+                    type = "docker",
+                    settings = new
                     {
-                        type = "docker",
-                        status = "running",
-                        restartPolicy = "always",
-                        settings = new
-                        {
-                            image = $"mcr.microsoft.com/azureiotedge-hub:{edgeAgentDesiredProperties.SystemModuleVersion}",
-                            createOptions = edgeAgentDesiredProperties.EdgeHubCreateOptions,
-                        },
+                        image = $"mcr.microsoft.com/azureiotedge-agent:{edgeAgentDesiredProperties.SystemModuleVersion}",
+                        createOptions = edgeAgentDesiredProperties.EdgeAgentCreateOptions,
                     },
                 },
-                modules = modules,
+                edgeHub = new
+                {
+                    type = "docker",
+                    status = "running",
+                    restartPolicy = "always",
+                    settings = new
+                    {
+                        image = $"mcr.microsoft.com/azureiotedge-hub:{edgeAgentDesiredProperties.SystemModuleVersion}",
+                        createOptions = edgeAgentDesiredProperties.EdgeHubCreateOptions,
+                    },
+                },
             };
         }
     }
