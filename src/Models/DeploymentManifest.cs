@@ -28,13 +28,13 @@ namespace Microsoft.Azure.Devices
             /// <summary>
             /// Gets or sets edgeAgent.
             /// </summary>
-            [JsonProperty("edgeAgent")]
+            [JsonProperty("$edgeAgent")]
             public EdgeAgent EdgeAgent { get; set; }
 
             /// <summary>
             /// Gets or sets edgeHub.
             /// </summary>
-            [JsonProperty("edgeHub")]
+            [JsonProperty("$edgeHub")]
             public EdgeHub EdgeHub { get; set; }
         }
 
@@ -44,16 +44,28 @@ namespace Microsoft.Azure.Devices
         public class EdgeAgent
         {
             /// <summary>
-            /// Gets or sets properties.desired.
+            /// Gets or sets properties.
             /// </summary>
-            [JsonProperty("properties.desired")]
-            public PropertiesDesiredEdgeAgent PropertiesDesired { get; set; }
+            [JsonProperty("properties")]
+            public PropertiesEdgeAgent PropertiesDesired { get; set; }
+        }
+
+        /// <summary>
+        /// Properties EdgeAgent.
+        /// </summary>
+        public class PropertiesEdgeAgent
+        {
+            /// <summary>
+            /// Gets or sets desired.
+            /// </summary>
+            [JsonProperty("desired")]
+            public DesiredEdgeAgent Desired { get; set; }
         }
 
         /// <summary>
         /// PropertiesDesiredEdgeAgent.
         /// </summary>
-        public class PropertiesDesiredEdgeAgent
+        public class DesiredEdgeAgent
         {
             /// <summary>
             /// Gets or sets schemaVersion.
@@ -224,16 +236,28 @@ namespace Microsoft.Azure.Devices
         public class EdgeHub
         {
             /// <summary>
-            /// Gets or sets properties.desired.
+            /// Gets or sets properties.
             /// </summary>
-            [JsonProperty("properties.desired")]
-            public PropertiesDesiredEdgeHub PropertiesDesired { get; set; }
+            [JsonProperty("properties")]
+            public PropertiesEdgeHub PropertiesDesired { get; set; }
         }
 
         /// <summary>
-        /// PropertiesDesiredEdgeHub.
+        /// Properties EdgeHub.
         /// </summary>
-        public class PropertiesDesiredEdgeHub
+        public class PropertiesEdgeHub
+        {
+            /// <summary>
+            /// Gets or sets desired.
+            /// </summary>
+            [JsonProperty("desired")]
+            public DesiredEdgeHub Desired { get; set; }
+        }
+
+        /// <summary>
+        /// DesiredEdgeHub.
+        /// </summary>
+        public class DesiredEdgeHub
         {
             /// <summary>
             /// Gets or sets schemaVersion.
