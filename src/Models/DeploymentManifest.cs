@@ -47,7 +47,7 @@ namespace Microsoft.Azure.Devices
             /// Gets or sets properties.
             /// </summary>
             [JsonProperty("properties")]
-            public PropertiesEdgeAgent PropertiesDesired { get; set; }
+            public PropertiesEdgeAgent Properties { get; set; }
         }
 
         /// <summary>
@@ -239,7 +239,7 @@ namespace Microsoft.Azure.Devices
             /// Gets or sets properties.
             /// </summary>
             [JsonProperty("properties")]
-            public PropertiesEdgeHub PropertiesDesired { get; set; }
+            public PropertiesEdgeHub Properties { get; set; }
         }
 
         /// <summary>
