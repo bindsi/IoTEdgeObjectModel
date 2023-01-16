@@ -44,28 +44,16 @@ namespace Microsoft.Azure.Devices
         public class EdgeAgent
         {
             /// <summary>
-            /// Gets or sets properties.
+            /// Gets or sets properties.desired.
             /// </summary>
-            [JsonProperty("properties")]
-            public PropertiesEdgeAgent Properties { get; set; }
-        }
-
-        /// <summary>
-        /// Properties EdgeAgent.
-        /// </summary>
-        public class PropertiesEdgeAgent
-        {
-            /// <summary>
-            /// Gets or sets desired.
-            /// </summary>
-            [JsonProperty("desired")]
-            public DesiredEdgeAgent Desired { get; set; }
+            [JsonProperty("properties.desired")]
+            public PropertiesDesiredEdgeAgent PropertiesDesired { get; set; }
         }
 
         /// <summary>
         /// PropertiesDesiredEdgeAgent.
         /// </summary>
-        public class DesiredEdgeAgent
+        public class PropertiesDesiredEdgeAgent
         {
             /// <summary>
             /// Gets or sets schemaVersion.
@@ -236,28 +224,16 @@ namespace Microsoft.Azure.Devices
         public class EdgeHub
         {
             /// <summary>
-            /// Gets or sets properties.
+            /// Gets or sets properties.desired.
             /// </summary>
-            [JsonProperty("properties")]
-            public PropertiesEdgeHub Properties { get; set; }
+            [JsonProperty("properties.desired")]
+            public PropertiesDesiredEdgeHub PropertiesDesired { get; set; }
         }
 
         /// <summary>
-        /// Properties EdgeHub.
+        /// PropertiesDesiredEdgeHub.
         /// </summary>
-        public class PropertiesEdgeHub
-        {
-            /// <summary>
-            /// Gets or sets desired.
-            /// </summary>
-            [JsonProperty("desired")]
-            public DesiredEdgeHub Desired { get; set; }
-        }
-
-        /// <summary>
-        /// DesiredEdgeHub.
-        /// </summary>
-        public class DesiredEdgeHub
+        public class PropertiesDesiredEdgeHub
         {
             /// <summary>
             /// Gets or sets schemaVersion.
