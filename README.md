@@ -1,3 +1,5 @@
+>Note: This repository has been archived and is no longer maintained. Please use the [Azure Edge Extensions IoT Edge Object Model](https://github.com/Azure-Samples/azure-edge-extensions-iotedge-objectmodel-dotnet) instead.
+
 # Overview
 
 This library provides extensions methods of [azure-iot-sdk](https://github.com/Azure/azure-iot-sdk-csharp) to support the following scenarios:
