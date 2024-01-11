@@ -33,10 +33,6 @@ jobs:
     - name: Display SemVer
       run: |
         echo "SemVer: $GITVERSION_SEMVER NugetVersion: $GITVERSION_NUGETVERSION"
-    - name: DotNet Pack
-      run: dotnet pack -p:PackageVersion=$GITVERSION_MAJORMINORPATCH
-    - name: Nuget Publish
-      run: dotnet nuget push **\*.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key ${{secrets.NUGET}}
     - name: Create git tag
       run: |
         git tag $GITVERSION_MAJORMINORPATCH
