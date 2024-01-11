@@ -149,3 +149,4 @@ EdgeHubReportedProperties edgeHubReportedProperties = edgeHubTwin.GetEdgeHubRepo
 [iot-edge-object-model](https://github.com/Azure/iot-edge-object-model)
 
 [Properties of the IoT Edge agent and IoT Edge hub module twins](https://docs.microsoft.com/en-us/azure/iot-edge/module-edgeagent-edgehub?view=iotedge-2020-11)
+
